@@ -26,7 +26,7 @@ class LinkedList {
             this.head = new_head;
             return(this);
         }
-        return(null)
+        return(null);
     }
     front(){
         return(this.head.data)
@@ -41,7 +41,7 @@ class LinkedList {
             sum += currentNode.data;
             currentNode = currentNode.next;
         }
-        return(sum)
+        return(sum);
     }
     contains(value){
         if(this.head.data == value){
@@ -50,11 +50,22 @@ class LinkedList {
         let currentNode = this.head;
         while (currentNode !== null){
             if(currentNode.data == value){
-                return(true)
+                return(true);
             }
             currentNode = currentNode.next
         }
         return(false);
+    }
+    display(){
+        let currentNode = this.head;
+        let displayString = "";
+        while(currentNode.next !== null){
+            displayString = displayString.concat(currentNode.data, ", ");
+            currentNode = currentNode.next;
+        }
+        displayString = displayString.concat(currentNode.data);
+        return(displayString);
+
     }
 }
 
@@ -66,7 +77,8 @@ console.log(single)
 console.log(single.contains(5));
 console.log(single.contains(18));
 console.log(single.contains(7));
-
+single.addFront(single.sum());
+console.log(single.display());
 
 // console.log(single.removeFront())
 // single.addFront(67);
