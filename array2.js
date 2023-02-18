@@ -56,46 +56,21 @@ console.log(reverse([1,2,4,3,5,6,89,6,4,5,1]));
 console.log(rotate([1,2,3,4,5,6,"yes", "broomshakalaka"],3));
 console.log(rotate([1,2,3,4,5,6,"yes", "broomshakalaka"],-3));
 //rotate 2.
+// filter
 
-// function rotate(array, shift){
-//     let lengthOfArray = array.length;
-//     for(var index = lengthOfArray -1; index >= 0; index--){
-//         if((index + shift)> lengthOfArray -1){
-//             temp = array[(index + shift)%(lengthOfArray-1)]=array[index];
-//         }
-//         if((index + shift)< 0) {
-//             let negativeShift = ((index + shift)*-1)%lengthOfArray;
-//             array[(lengthOfArray-1)-negativeShift] = array[index];
-//         }
-//         else array[index + shift]=array[index];
-//     } 
-//     return array;
-// }
+function filter(array, min, max){
+    if (min <= max) {
+        for(var i = 0; i < array.length; i++){
+            if (array[i] < min || array[i]> max){
+                array.splice(i, 1)
+                i -= 1;
+            }
+        }
+        return(array);
+    }
+    else {
+        return([]);
+    }
+}
 
-// console.log(rotate(["a1","a2","a3", "a4", "a5"],-2));
-
-
-// // I want to make a recurse function that starts at some index in the array(maybe 0) and bumps each index over by the shift value until it reaches start(it will once the shift amount and the iterations are a common multiple of array length and shift) then it will start at the next array point and so on until the last array point. 
-// function rotate(array, shift){
-//     function mapping(array, start, target){
-//         while(target != start){
-//             if(target > array.length -1){
-//                 residue = target%(array.length);
-//                 target = residue;
-//                 tempVal = array[target];
-//                 array[target] = array[start];
-//                 let dif = Math.abs(target - start);
-//                 target = start + dif;
-//             }
-//             else if (target < 0){
-//                 residue = (array.length%(Math.abs(target)));
-//                 target = ((array.length-1) - residue);
-//                 tempVal = array[target];
-//                 array[target] = array[start];
-//                 let dif = Math.abse(target - start);
-//                 target = start + dif;
-//             }
-//         }
-//     }
-// }
-
+console.log(filter([0,2,33,4,5,6,3,5,6],6, 40));
