@@ -74,3 +74,36 @@ function filter(array, min, max){
 }
 
 console.log(filter([0,2,33,4,5,6,3,5,6],6, 40));
+
+// balance point function:
+
+function isBalance(array){
+    for(var i = 0; i<array.length; i++){
+        let first = [];
+        let last = [];
+        let sumFirst = 0;
+        let sumLast = 0;
+        for(j = 0; j <= i; j++){
+            first[j]= array[j];
+        }
+        console.log(first);
+        for(j = 0; j < (array.length-1)-i; j++){
+            last[j] = array[(array.length-1)-j]
+        }
+        console.log(last);
+        for(x of first){
+            sumFirst += x;
+        }
+        console.log(sumFirst);
+        for(x of last){
+            sumLast += x;
+        }
+        console.log(sumLast);
+        if (sumFirst == sumLast){
+            return(true)
+        }
+    }
+    return(false);
+}
+
+console.log(isBalance([1,2,3,4,15]));
