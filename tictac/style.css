@@ -1,3 +1,17 @@
 * {
     margin:0;
 }
+
+
+.playerOne {
+    color: red;
+}
+
+.playerTwo {
+    color: blue;
+}
+
+.gameOver {
+    color: yellow;
+    background-color: green;
+}
